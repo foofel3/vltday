@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <style>
+        /* Add some basic styling */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            /* Full viewport height */
+            padding: 20px;
+            /* Adjust based on design needs */
+            box-sizing: border-box;
+        }
+
+        .header,
+        .footer {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            overflow: hidden;
+            /* Prevents accidental overflow */
+        }
+
+        .gallery img,
+        .gallery video {
+            flex: 1 0 21%;
+            /* Adjust based on number of items to fit horizontally */
+            height: 120px;
+            /* Adjust based on design needs */
+            object-fit: cover;
+        }
+
+        .fullscreen-popup {
+            position: fixed;
+            /* Fullscreen and over other content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(220, 114, 114);
+            /* Semi-transparent black background */
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            z-index: 9999;
+            /* Ensure it's above other content */
+        }
+
+        /* Optionally style the Next button */
+        #nextButton {
+            background-color: #ff6384;
+            /* Soft pink */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            /* Rounded corners */
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            /* Smooth transitions for interactions */
+            outline: none;
+            /* Removes the outline to keep the style clean */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Soft shadow for depth */
+            font-family: Arial, sans-serif;
+        }
+
+        #nextButton:hover,
+        #nextButton:focus {
+            transform: scale(1.05);
+            /* Slightly enlarges the button on hover/focus */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            /* Larger shadow on hover/focus */
+        }
+
+        #nextButton:active {
+            transform: scale(0.95);
+            /* Small shrink effect when clicked */
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+            /* Smaller shadow when clicked */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="gallery">
+            <img src="src/DSC03923.jpg">
+            <img src="src/vl8.jpeg">
+            <img src="src/vl1.jpeg">
+            <img src="src/LINE_ALBUM_422567 BE_240208_5.jpg">
+            <img src="src/vl2.jpeg">
+            <img src="src/vl day.png">
+            <div class="video">
+                <video autoplay muted loop id="myVideo">
+                    <source src="src/IMG_3797.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <img src="src/vl7.jpeg">
+            <img src="src/vl4.jpeg">
+            <img src="src/vl5.jpeg">
+            <div class="video">
+                <video autoplay muted loop id="myVideo">
+                    <source src="src/IMG_3104.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <img src="src/vl6.jpeg">
+            <img src="src/vl9.jpeg">
+            <img src="src/vl12.jpeg">
+            <!-- Repeat the above line for each of your 16 images -->
+        </div>
+        <div class="footer">
+            <button onclick="playAudio()">Play Music</button>
+        </div>
+    </div>
+    <!-- Fullscreen Popup -->
+    <div id="fullscreenPopup" class="fullscreen-popup">
+        <button id="nextButton">click here to see <br />♥ My Sun and Moon ♥</button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="src/song.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        document.getElementById('nextButton').addEventListener('click', function () {
+            // Play the audio
+            var audio = document.getElementById('backgroundMusic');
+            audio.play();
+
+            // Hide the fullscreen popup
+            var popup = document.getElementById('fullscreenPopup');
+            popup.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
