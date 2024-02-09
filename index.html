@@ -9,6 +9,7 @@
         /* Add some basic styling */
         body,
         html {
+            background-color: #ffc0cb;
             margin: 0;
             padding: 0;
             width: 100%;
@@ -49,6 +50,26 @@
             /* Adjust based on design needs */
             object-fit: cover;
         }
+
+        @media (min-width: 1024px) {
+            .gallery {
+                display: flex;
+                /* 4 items per row */
+                gap: 0px;
+            }
+
+            .gallery img,
+            .gallery video {
+                width: auto;
+                /* Let grid control the size */
+                height: 320px;
+                /* Fixed height, or use auto to maintain aspect ratio */
+                object-fit: cover;
+            }
+
+            /* Adjusted layout for desktop */
+        }
+
 
         .fullscreen-popup {
             position: fixed;
@@ -136,7 +157,8 @@
             <!-- Repeat the above line for each of your 16 images -->
         </div>
     </div>
-    <!-- Fullscreen Popup -->
+
+    Fullscreen Popup
     <div id="fullscreenPopup" class="fullscreen-popup">
         <button id="nextButton">click here to see <br />♥ My Sun and Moon ♥</button>
     </div>
